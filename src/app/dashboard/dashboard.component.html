@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="col">
+    <h3 class="title">Current Currencies</h3>
+    <div class="cur-col">
+      <app-currency-item
+        *ngFor="let cur of currencyList$ | async; trackBy: trackBy"
+        [price]="cur.value" [name]="cur.code"></app-currency-item>
+    </div>
+  </div>
+  <div class="col input">
+    <app-input (onChange)="amountChange($event)" [value]="initialValue"></app-input>
+  </div>
+  <div class="col">
+    <h3 class="title">Your Exchange</h3>
+    <div class="cur-col">
+      <app-currency-item
+        *ngFor="let cur of exchangeCurrencyList$ | async; trackBy: trackBy"
+        [price]="cur.value" [name]="cur.code"></app-currency-item>
+    </div>
+  </div>
+</div>
+

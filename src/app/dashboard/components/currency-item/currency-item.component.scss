@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+  justify-content: center;
+  background: #f3f3f3;
+  border-bottom: 1px solid lightgray;
+  padding: 0.5em;
+  font-size: 0.8rem;
+
+  .name {
+    margin-right: 0.5em;
+  }
+}

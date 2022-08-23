@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  justify-content: space-around;
+  height: 100vh;
+  overflow: hidden;
+  padding: 1em;
+  box-sizing: border-box;
+
+  .col {
+    width: 30%;
+  }
+
+  .title {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  .cur-col {
+    height: 100%;
+    overflow: auto;
+  }
+
+  .input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
