@@ -7,24 +7,28 @@ import {InputComponent} from './components/input/input.component';
 import {ReactiveFormsModule} from "@angular/forms";
 import {NumbersOnlyDirective} from './directives/numbers-only.directive';
 import {ToFixedPipe} from './pipes/to-fixed.pipe';
+import {UPDATE_INTERVAL} from "./types/update-interval.token";
 
 
 @NgModule({
-  declarations: [
-    DashboardComponent,
-    CurrencyItemComponent,
-    InputComponent,
-    NumbersOnlyDirective,
-    ToFixedPipe
-  ],
-  exports: [
-    DashboardComponent
-  ],
-  imports: [
-    CommonModule,
-    HttpClientModule,
-    ReactiveFormsModule
-  ]
+    declarations: [
+        DashboardComponent,
+        CurrencyItemComponent,
+        InputComponent,
+        NumbersOnlyDirective,
+        ToFixedPipe
+    ],
+    exports: [
+        DashboardComponent
+    ],
+    imports: [
+        CommonModule,
+        HttpClientModule,
+        ReactiveFormsModule
+    ],
+    providers: [
+        {provide: UPDATE_INTERVAL, useValue: 10000}
+    ]
 })
 export class DashboardModule {
 }
