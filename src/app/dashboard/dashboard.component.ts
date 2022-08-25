@@ -12,6 +12,7 @@ import {exchangeCurrency} from "./utils/exchange-currency";
 })
 export class DashboardComponent implements OnInit, OnDestroy {
     readonly initialValue: number = 1;
+    readonly updating$: Observable<boolean> = this.currencyStoreService.updating$;
     readonly currencyList$: Observable<Currency[]> = this.currencyStoreService.onDataReceived;
     private readonly amountChangeSource: Subject<number> = new Subject<number>();
     private readonly amount$: Observable<number> = this.amountChangeSource.asObservable();
@@ -30,6 +31,10 @@ export class DashboardComponent implements OnInit, OnDestroy {
 
     amountChange(e: number): void {
         this.amountChangeSource.next(e);
+    }
+
+    forceUpdate(): void {
+        this.currencyStoreService.forceUpdate();
     }
 
     ngOnInit(): void {
