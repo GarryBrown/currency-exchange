@@ -1,12 +1,12 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-  name: 'toFixed'
+    name: 'toFixed'
 })
 export class ToFixedPipe implements PipeTransform {
 
-  transform(value: number): unknown {
-    return value.toFixed(2);
-  }
+    transform(value: number): unknown {
+        return value.toFixed(2);
+    }
 
 }

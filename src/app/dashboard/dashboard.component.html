@@ -1,22 +1,24 @@
 <div class="container">
-  <div class="col">
-    <h3 class="title">Current Currencies</h3>
-    <div class="cur-col">
-      <app-currency-item
-        *ngFor="let cur of currencyList$ | async; trackBy: trackBy"
-        [price]="cur.value" [name]="cur.code"></app-currency-item>
+    <div class="col">
+        <h3 class="title">Current Currencies</h3>
+        <div class="cur-col">
+            <app-currency-item
+                    *ngFor="let cur of currencyList$ | async; trackBy: trackBy"
+                    [name]="cur.code" [price]="cur.value"></app-currency-item>
+        </div>
     </div>
-  </div>
-  <div class="col input">
-    <app-input (onChange)="amountChange($event)" [value]="initialValue"></app-input>
-  </div>
-  <div class="col">
-    <h3 class="title">Your Exchange</h3>
-    <div class="cur-col">
-      <app-currency-item
-        *ngFor="let cur of exchangeCurrencyList$ | async; trackBy: trackBy"
-        [price]="cur.value" [name]="cur.code"></app-currency-item>
+    <div class="col form">
+        <app-input (onChange)="amountChange($event)" [value]="initialValue"></app-input>
+        <button (click)="forceUpdate()" [disabled]="updating$ | async" class="update-button">force update</button>
+        <p *ngIf="updating$ | async" class="loader">updating...</p>
     </div>
-  </div>
+    <div class="col">
+        <h3 class="title">Your Exchange</h3>
+        <div class="cur-col">
+            <app-currency-item
+                    *ngFor="let cur of exchangeCurrencyList$ | async; trackBy: trackBy"
+                    [name]="cur.code" [price]="cur.value"></app-currency-item>
+        </div>
+    </div>
 </div>
 
